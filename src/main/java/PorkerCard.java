@@ -2,6 +2,7 @@ import java.util.Objects;
 
 public class PorkerCard {
     private static final String POINT_ORDER = "23456789TJQKA";
+    private static final String CARD_SUIT = "CHSD";
     private String point;
     private String suit;
 
@@ -17,7 +18,7 @@ public class PorkerCard {
     }
 
     private boolean isSuitInvalid(String suit) {
-        return "CHSD".indexOf(suit) == -1? true: false;
+        return CARD_SUIT.indexOf(suit) == -1? true: false;
     }
 
     public static boolean isPointInvalid(String point) {
