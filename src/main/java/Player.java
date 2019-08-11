@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Player{
+public class Player {
     private int playerNum;
     private List<PorkerCard> porkerCards;
     private CardLevel cardLevel;
@@ -28,9 +28,9 @@ public class Player{
     }
 
     public Player playWith(Player p2) {
-        if(this.getLevel() > p2.getLevel()) {
+        if (this.getLevel() > p2.getLevel()) {
             return this;
-        }else if(this.getLevel() < p2.getLevel()) {
+        } else if (this.getLevel() < p2.getLevel()) {
             return p2;
         }
         return compareInSameLevel(p2);
@@ -39,15 +39,17 @@ public class Player{
     private Player compareInSameLevel(Player p2) {
         int sameLevel = this.getLevel();
         switch (sameLevel) {
-            case 1: return compareOnePairCards(p2);
-            default: return compareNormalCards(p2);
+            case 1:
+                return compareOnePairCards(p2);
+            default:
+                return compareNormalCards(p2);
         }
     }
 
     private Player compareOnePairCards(Player p2) {
         PorkerCard p1PairCard = this.cardLevel.getPairCards().get(0);
         PorkerCard result = p1PairCard.compare(p2.getCardLevel().getPairCards().get(0));
-        if(result != null) return getWinerByCardResult(result, p1PairCard, p2);
+        if (result != null) return getWinerByCardResult(result, p1PairCard, p2);
         return compareNormalCards(p2);
     }
 
@@ -59,7 +61,7 @@ public class Player{
     }
 
     private Player getWinerByCardResult(PorkerCard result, PorkerCard p1PorkerCard, Player p2) {
-        return result == null ? null: result == p1PorkerCard? this: p2;
+        return result == null ? null : result == p1PorkerCard ? this : p2;
     }
 
     private PorkerCard getMaxPorkerCard() {
