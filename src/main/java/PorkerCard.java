@@ -5,9 +5,16 @@ public class PorkerCard {
     private String point;
     private String suit;
 
-    public PorkerCard(String point, String suit) {
+    public PorkerCard(String point, String suit) throws PorkerGameException {
+        if(isPointInvalid(point)){
+            throw new PorkerGameException(PorkerGameException.INVALID_POINT);
+        }
         this.point = point;
         this.suit = suit;
+    }
+
+    public static boolean isPointInvalid(String point) {
+        return getPointOrderIndex(point) == -1? true: false;
     }
 
     public String getPoint() {
