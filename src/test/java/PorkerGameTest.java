@@ -22,7 +22,7 @@ public class PorkerGameTest {
     public void should_return_0_given_2_2_cards_with_normal_suit() {
 
         PorkerCard porkerCard = new PorkerCard(2, "H");
-        PorkerCard porkerCard2 = new PorkerCard(2, "H");
+        PorkerCard porkerCard2 = new PorkerCard(2, "D");
 
         int result = PorkerGame.startGame(Arrays.asList(porkerCard, porkerCard2));
 
