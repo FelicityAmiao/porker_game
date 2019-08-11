@@ -1,12 +1,14 @@
 public class PorkerCard {
-    private int point;
+    private static final String POINT_ORDER = "23456789TJQKA";
+    private String point;
     private String suit;
-    public PorkerCard(int point, String suit) {
+
+    public PorkerCard(String point, String suit) {
         this.point = point;
         this.suit = suit;
     }
 
-    public int getPoint() {
+    public String getPoint() {
         return point;
     }
 
@@ -15,9 +17,15 @@ public class PorkerCard {
     }
 
     public PorkerCard compare(PorkerCard porkerCard2) {
-        if(this.point > porkerCard2.getPoint()) {
+        if (getPointOrderIndex(this.point) > getPointOrderIndex(porkerCard2.getPoint())) {
             return this;
+        }else if(getPointOrderIndex(this.point) < getPointOrderIndex(porkerCard2.getPoint())) {
+            return porkerCard2;
         }
-        return porkerCard2;
+        return null;
+    }
+
+    public static int getPointOrderIndex(String point) {
+        return PorkerCard.POINT_ORDER.indexOf(point);
     }
 }
