@@ -41,9 +41,19 @@ public class Player {
         switch (sameLevel) {
             case 1:
                 return compareOnePairCards(p2);
+            case 2:
+                return compareTwoPairCards(p2);
             default:
                 return compareNormalCards(p2);
         }
+    }
+
+    private Player compareTwoPairCards(Player p2) {
+        PorkerCard p1MaxCard = getMaxPorkerCard(this.cardLevel.getPairCards());
+        PorkerCard p2MaxCard = getMaxPorkerCard(p2.getCardLevel().getPairCards());
+        PorkerCard result = p1MaxCard.compare(p2MaxCard);
+        if(result != null) return getWinerByCardResult(result, p1MaxCard, p2);
+        return compareNormalCards(p2);
     }
 
     private Player compareOnePairCards(Player p2) {
@@ -54,8 +64,12 @@ public class Player {
     }
 
     private Player compareNormalCards(Player p2) {
-        PorkerCard p1PorkerCard = getMaxPorkerCard();
-        PorkerCard p2PorkerCard = p2.getMaxPorkerCard();
+        PorkerCard p1PorkerCard = getMaxPorkerCard(porkerCards);
+        PorkerCard p2PorkerCard = p2.getMaxPorkerCard(p2.porkerCards);
+        return getWinerPlayerByTwoMaxCard(p2, p1PorkerCard, p2PorkerCard);
+    }
+
+    private Player getWinerPlayerByTwoMaxCard(Player p2, PorkerCard p1PorkerCard, PorkerCard p2PorkerCard) {
         PorkerCard result = p1PorkerCard.compare(p2PorkerCard);
         return getWinerByCardResult(result, p1PorkerCard, p2);
     }
@@ -64,7 +78,7 @@ public class Player {
         return result == null ? null : result == p1PorkerCard ? this : p2;
     }
 
-    private PorkerCard getMaxPorkerCard() {
+    private PorkerCard getMaxPorkerCard(List<PorkerCard> porkerCards) {
         return porkerCards.stream().reduce((porkerCard, porkerCard2) -> {
             return Optional.ofNullable(porkerCard.compare(porkerCard2)).orElse(porkerCard);
         }).get();

@@ -31,7 +31,7 @@ A porker game developed by TDD
 ###### level 0 vs level 0:
 
 ```java
-//supplement one test case 3.1: 2 3 4 5 9, 2 3 4 5 8
+//supplement one test case 3.1: 2 3 4 5 9, 2 3 4 5 8 => 1
 ```
 
 3. 2 3 4 T A, 2 3 J Q K => 1
@@ -52,7 +52,7 @@ A porker game developed by TDD
 
 ###### level 2 vs level 2:
 
-8. 2 2 4 4 7, 2 2 3 3 6 => 1
+8. 2 2 4 4 6, 2 2 3 3 7 => 1
 
 9. 2 2 3 3 4, 2 2 3 3 5 => 2
 
