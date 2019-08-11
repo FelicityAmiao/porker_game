@@ -3,15 +3,15 @@ import java.util.*;
 public class Player {
     private int playerNum;
     private List<PorkerCard> porkerCards;
-    private CardLevel cardLevel;
+    private LevelCard levelCard;
 
     public Player(int playerNum, List<PorkerCard> porkerCards) {
         this.playerNum = playerNum;
         this.porkerCards = porkerCards;
-        this.cardLevel = calculateCardsLevel();
+        this.levelCard = calculateCardsLevel();
     }
 
-    private CardLevel calculateCardsLevel() {
+    private LevelCard calculateCardsLevel() {
         return LevelCaculator.getLevelResultsByCards(porkerCards);
     }
 
@@ -20,11 +20,11 @@ public class Player {
     }
 
     public int getLevel() {
-        return cardLevel.getLevelNumber();
+        return levelCard.getLevelNumber();
     }
 
-    public CardLevel getCardLevel() {
-        return cardLevel;
+    public LevelCard getLevelCard() {
+        return levelCard;
     }
 
     public Player playWith(Player p2) {
@@ -49,16 +49,16 @@ public class Player {
     }
 
     private Player compareTwoPairCards(Player p2) {
-        PorkerCard p1MaxCard = getMaxPorkerCard(this.cardLevel.getPairCards());
-        PorkerCard p2MaxCard = getMaxPorkerCard(p2.getCardLevel().getPairCards());
+        PorkerCard p1MaxCard = getMaxPorkerCard(this.levelCard.getPairCards());
+        PorkerCard p2MaxCard = getMaxPorkerCard(p2.getLevelCard().getPairCards());
         PorkerCard result = p1MaxCard.compare(p2MaxCard);
         if(result != null) return getWinerByCardResult(result, p1MaxCard, p2);
         return compareNormalCards(p2);
     }
 
     private Player compareOnePairCards(Player p2) {
-        PorkerCard p1PairCard = this.cardLevel.getPairCards().get(0);
-        PorkerCard result = p1PairCard.compare(p2.getCardLevel().getPairCards().get(0));
+        PorkerCard p1PairCard = this.levelCard.getPairCards().get(0);
+        PorkerCard result = p1PairCard.compare(p2.getLevelCard().getPairCards().get(0));
         if (result != null) return getWinerByCardResult(result, p1PairCard, p2);
         return compareNormalCards(p2);
     }
