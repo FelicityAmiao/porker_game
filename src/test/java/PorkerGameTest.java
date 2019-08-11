@@ -338,7 +338,21 @@ public class PorkerGameTest {
             }
             porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
         }
+    }
 
+    @Test
+    public void should_throw_invalid_suit_exception_given_has_X_suit_cards() throws PorkerGameException {
+
+        List<String> points = Arrays.asList("2", "3", "4", "5", "6", "3", "4", "5", "6", "9");
+        List<String> suits = Arrays.asList("H", "S", "C", "D", "X", "D", "D", "S", "D", "H");
+        ArrayList<PorkerCard> porkerCards = new ArrayList<>();
+        for(int i = 0; i < points.size() && i < suits.size(); i++) {
+            if(i == 4) {
+                assertThrows(PorkerGameException.class, () -> porkerCards.add(new PorkerCard(points.get(4), suits.get(4))));
+                continue;
+            }
+            porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
+        }
     }
 
 }

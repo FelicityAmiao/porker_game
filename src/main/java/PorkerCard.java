@@ -6,15 +6,22 @@ public class PorkerCard {
     private String suit;
 
     public PorkerCard(String point, String suit) throws PorkerGameException {
-        if(isPointInvalid(point)){
+        if (isPointInvalid(point)) {
             throw new PorkerGameException(PorkerGameException.INVALID_POINT);
+        }
+        if (isSuitInvalid(suit)) {
+            throw new PorkerGameException(PorkerGameException.INVALID_SUIT);
         }
         this.point = point;
         this.suit = suit;
     }
 
+    private boolean isSuitInvalid(String suit) {
+        return "CHSD".indexOf(suit) == -1? true: false;
+    }
+
     public static boolean isPointInvalid(String point) {
-        return getPointOrderIndex(point) == -1? true: false;
+        return getPointOrderIndex(point) == -1 ? true : false;
     }
 
     public String getPoint() {
