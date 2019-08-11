@@ -66,10 +66,6 @@ public class Player {
     private Player compareNormalCards(Player p2) {
         PorkerCard p1PorkerCard = getMaxPorkerCard(porkerCards);
         PorkerCard p2PorkerCard = p2.getMaxPorkerCard(p2.porkerCards);
-        return getWinerPlayerByTwoMaxCard(p2, p1PorkerCard, p2PorkerCard);
-    }
-
-    private Player getWinerPlayerByTwoMaxCard(Player p2, PorkerCard p1PorkerCard, PorkerCard p2PorkerCard) {
         PorkerCard result = p1PorkerCard.compare(p2PorkerCard);
         return getWinerByCardResult(result, p1PorkerCard, p2);
     }
