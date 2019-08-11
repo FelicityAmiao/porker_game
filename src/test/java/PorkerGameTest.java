@@ -367,4 +367,16 @@ public class PorkerGameTest {
         assertThrows(PorkerGameException.class, () -> PorkerGame.startGame(porkerCards));
     }
 
+    @Test
+    public void should_throw_one_point_with_4_cards_at_most_exception_given_10_cards_with_2_in_6_times() throws PorkerGameException {
+
+        List<String> points = Arrays.asList("2", "2", "2", "4", "5", "2", "2", "2", "3", "6");
+        List<String> suits = Arrays.asList("H", "S", "C", "D", "H", "D", "D", "S", "D", "H");
+        ArrayList<PorkerCard> porkerCards = new ArrayList<>();
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
+            porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
+        }
+        assertThrows(PorkerGameException.class, () -> PorkerGame.startGame(porkerCards));
+    }
+
 }
