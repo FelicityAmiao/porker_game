@@ -1,12 +1,14 @@
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class LevelCaculator {
     public static final int NORMAL_CARDS_LEVEL = 0;
     public static final int ONE_PAIR = 1;
     private static final int TWO_PAIR = 2;
     private static final int THREE_CARD = 3;
+    private static final int STRAIGHT = 4;
 
     public static LevelCard getLevelResultsByCards(List<PorkerCard> porkerCards) {
         if (porkerCards == null) return new LevelCard(NORMAL_CARDS_LEVEL);
@@ -17,7 +19,17 @@ public class LevelCaculator {
         levelCard = getLevelCardByThreeCardsType(porkerCards);
         if (levelCard != null) return levelCard;
 
+        levelCard = getLevelCardByStraightType(porkerCards);
+        if (levelCard != null) return levelCard;
+
         return new LevelCard(NORMAL_CARDS_LEVEL);
+    }
+
+    private static LevelCard getLevelCardByStraightType(List<PorkerCard> porkerCards) {
+        List<Integer> indexs = porkerCards.stream().map(item -> PorkerCard.getPointOrderIndex(item.getPoint())).collect(Collectors.toList());
+        List<Integer> minusLists = IntStream.range(0, indexs.size() - 1).filter(i -> indexs.get(i + 1) - indexs.get(i) == 1).boxed().collect(Collectors.toList());
+        if (indexs.size() - 1 == minusLists.size()) return new LevelCard(STRAIGHT);
+        return null;
     }
 
     private static LevelCard getLevelCardByThreeCardsType(List<PorkerCard> porkerCards) {
