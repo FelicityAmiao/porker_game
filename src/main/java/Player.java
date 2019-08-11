@@ -3,16 +3,16 @@ import java.util.*;
 public class Player{
     private int playerNum;
     private List<PorkerCard> porkerCards;
-    private int level;
+    private CardLevel cardLevel;
 
     public Player(int playerNum, List<PorkerCard> porkerCards) {
         this.playerNum = playerNum;
         this.porkerCards = porkerCards;
-        this.level = calculateCardsLevel();
+        this.cardLevel = calculateCardsLevel();
     }
 
-    private int calculateCardsLevel() {
-        return LevelCaculator.calculateLevelByCards(porkerCards);
+    private CardLevel calculateCardsLevel() {
+        return LevelCaculator.getLevelResultsByCards(porkerCards);
     }
 
     public int getPlayerNum() {
@@ -20,15 +20,34 @@ public class Player{
     }
 
     public int getLevel() {
-        return level;
+        return cardLevel.getLevelNumber();
+    }
+
+    public CardLevel getCardLevel() {
+        return cardLevel;
     }
 
     public Player playWith(Player p2) {
-        if(this.level > p2.getLevel()) {
+        if(this.getLevel() > p2.getLevel()) {
             return this;
-        }else if(this.level < p2.level) {
+        }else if(this.getLevel() < p2.getLevel()) {
             return p2;
         }
+        return compareInSameLevel(p2);
+    }
+
+    private Player compareInSameLevel(Player p2) {
+        int sameLevel = this.getLevel();
+        switch (sameLevel) {
+            case 1: return compareOnePairCards(p2);
+            default: return compareNormalCards(p2);
+        }
+    }
+
+    private Player compareOnePairCards(Player p2) {
+        PorkerCard p1PairCard = this.cardLevel.getPairCards().get(0);
+        PorkerCard result = p1PairCard.compare(p2.getCardLevel().getPairCards().get(0));
+        if(result != null) return getWinerByCardResult(result, p1PairCard, p2);
         return compareNormalCards(p2);
     }
 
@@ -36,6 +55,10 @@ public class Player{
         PorkerCard p1PorkerCard = getMaxPorkerCard();
         PorkerCard p2PorkerCard = p2.getMaxPorkerCard();
         PorkerCard result = p1PorkerCard.compare(p2PorkerCard);
+        return getWinerByCardResult(result, p1PorkerCard, p2);
+    }
+
+    private Player getWinerByCardResult(PorkerCard result, PorkerCard p1PorkerCard, Player p2) {
         return result == null ? null: result == p1PorkerCard? this: p2;
     }
 
