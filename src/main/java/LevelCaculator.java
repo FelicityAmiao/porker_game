@@ -10,6 +10,7 @@ public class LevelCaculator {
     private static final int THREE_CARD = 3;
     private static final int STRAIGHT = 4;
     private static final int SAME_SUIT = 5;
+    private static final int THREE_CARD_AND_ONE_PAIR = 6;
 
     public static LevelCard getLevelResultsByCards(List<PorkerCard> porkerCards) {
         if (porkerCards == null) return new LevelCard(NORMAL_CARDS_LEVEL);
@@ -32,7 +33,7 @@ public class LevelCaculator {
     private static LevelCard getLevelCardBySameSuitType(List<PorkerCard> porkerCards) {
         List<String> suits = porkerCards.stream().map(PorkerCard::getSuit).collect(Collectors.toList());
         List<String> sameSuitItems = suits.stream().filter(item -> Collections.frequency(suits, item) == 5).collect(Collectors.toList());
-        if(sameSuitItems.size() == suits.size()) return new LevelCard(SAME_SUIT);
+        if (sameSuitItems.size() == suits.size()) return new LevelCard(SAME_SUIT);
         return null;
     }
 
@@ -51,7 +52,10 @@ public class LevelCaculator {
 
     private static LevelCard getLevelCardByPairsType(List<PorkerCard> porkerCards) {
         List<PorkerCard> pairCards = getRepeatedCardsByTimes(porkerCards, 2);
-        if (pairCards.size() == 2) return new LevelCard(ONE_PAIR, pairCards);
+        if (pairCards.size() == 2) {
+            List<PorkerCard> threeCards = getRepeatedCardsByTimes(porkerCards, 3);
+            return threeCards.size() == 0? new LevelCard(ONE_PAIR, pairCards): new LevelCard(THREE_CARD_AND_ONE_PAIR, pairCards, threeCards);
+        }
         if (pairCards.size() == 4) return new LevelCard(TWO_PAIR, pairCards);
         return null;
     }
