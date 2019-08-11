@@ -40,7 +40,8 @@ public class Player {
         int sameLevel = this.getLevel();
         switch (sameLevel) {
             case 1:
-                return compareOnePairCards(p2);
+            case 3:
+                return compareSamePointRepeatedCards(p2);
             case 2:
                 return compareTwoPairCards(p2);
             default:
@@ -56,7 +57,7 @@ public class Player {
         return compareNormalCards(p2);
     }
 
-    private Player compareOnePairCards(Player p2) {
+    private Player compareSamePointRepeatedCards(Player p2) {
         PorkerCard p1PairCard = this.levelCard.getPairCards().get(0);
         PorkerCard result = p1PairCard.compare(p2.getLevelCard().getPairCards().get(0));
         if (result != null) return getWinerByCardResult(result, p1PairCard, p2);

@@ -62,7 +62,7 @@ A porker game developed by TDD
 
 ###### level 3 vs level 3:
 
-11. 4 4 4 5 6, 2 2 2 3 4 => 1
+11. 4 4 4 5 6, 2 2 2 3 8 => 1
 
 ###### level 3 vs level 4:
 
