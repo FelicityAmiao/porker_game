@@ -41,10 +41,11 @@ public class Player {
         switch (sameLevel) {
             case 1:
                 return compareSamePointRepeatedCards(p2, this.levelCard.getPairCards(), p2.getLevelCard().getPairCards());
-            case 3:
-                return compareSamePointRepeatedCards(p2, this.levelCard.getThreeCards(), p2.getLevelCard().getThreeCards());
             case 2:
                 return compareTwoPairCards(p2);
+            case 3:
+            case 6:
+                return compareSamePointRepeatedCards(p2, this.levelCard.getThreeCards(), p2.getLevelCard().getThreeCards());
             default:
                 return compareNoRepeatedCards(p2);
         }
