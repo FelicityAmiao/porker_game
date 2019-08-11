@@ -6,20 +6,10 @@ public class Player {
     private List<PorkerCard> porkerCards;
     private LevelCard levelCard;
 
-    public Player(int playerNum, List<PorkerCard> porkerCards) throws PorkerGameException {
+    public Player(int playerNum, List<PorkerCard> porkerCards){
         this.playerNum = playerNum;
-        if (isPorkerCardsInvalid(porkerCards)) {
-            throw new PorkerGameException(PorkerGameException.INVALID_POINT);
-        }
         this.porkerCards = porkerCards;
         this.levelCard = calculateCardsLevel();
-    }
-
-    private boolean isPorkerCardsInvalid(List<PorkerCard> porkerCards) {
-        if(porkerCards == null) return false;
-        List<String> validItems = porkerCards.stream().map(PorkerCard::getPoint).filter(item -> PorkerCard.isPointInvalid(item)).collect(Collectors.toList());
-        if (validItems.size() == 0) return false;
-        return true;
     }
 
     private LevelCard calculateCardsLevel() {
