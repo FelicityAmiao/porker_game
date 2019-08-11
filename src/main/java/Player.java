@@ -16,6 +16,9 @@ public class Player {
     }
 
     public Player playWith(Player p2) {
-        return this.porkerCard.getPoint() > p2.getPorkerCard().getPoint()? this: p2;
+        int p1Point = this.porkerCard.getPoint();
+        int p2Point = p2.getPorkerCard().getPoint();
+        if(p1Point == p2Point) return null;
+        return p1Point > p2Point ? this: p2;
     }
 }
