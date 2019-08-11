@@ -36,7 +36,7 @@ public class LevelCaculator {
 
     private static LevelCard getLevelCardByForCardsType(List<PorkerCard> porkerCards) {
         List<PorkerCard> fourCards = getRepeatedCardsByTimes(porkerCards, 4);
-        if(fourCards.size() == 4) return new LevelCard(FOUR_CARD);
+        if(fourCards.size() == 4) return new LevelCard(FOUR_CARD, null, null, fourCards);
         return null;
     }
 

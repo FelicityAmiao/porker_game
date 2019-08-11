@@ -46,6 +46,8 @@ public class Player {
             case 3:
             case 6:
                 return compareSamePointRepeatedCards(p2, this.levelCard.getThreeCards(), p2.getLevelCard().getThreeCards());
+            case 7:
+                return compareSamePointRepeatedCards(p2, this.levelCard.getFourCards(), p2.getLevelCard().getFourCards());
             default:
                 return compareNoRepeatedCards(p2);
         }
