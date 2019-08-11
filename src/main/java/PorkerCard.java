@@ -13,4 +13,11 @@ public class PorkerCard {
     public String getSuit() {
         return suit;
     }
+
+    public PorkerCard compare(PorkerCard porkerCard2) {
+        if(this.point > porkerCard2.getPoint()) {
+            return this;
+        }
+        return porkerCard2;
+    }
 }

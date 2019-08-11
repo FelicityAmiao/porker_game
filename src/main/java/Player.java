@@ -1,24 +1,30 @@
-public class Player {
-    private int playerNum;
-    private PorkerCard porkerCard;
+import java.util.List;
 
-    public Player(int playerNum, PorkerCard porkerCard) {
+public class Player{
+    private int playerNum;
+    private List<PorkerCard> porkerCards;
+
+    public Player(int playerNum, List<PorkerCard> porkerCards) {
         this.playerNum = playerNum;
-        this.porkerCard = porkerCard;
+        this.porkerCards = porkerCards;
     }
 
     public int getPlayerNum() {
         return playerNum;
     }
 
-    public PorkerCard getPorkerCard() {
-        return porkerCard;
+    public List<PorkerCard> getPorkerCards() {
+        return porkerCards;
     }
 
     public Player playWith(Player p2) {
-        int p1Point = this.porkerCard.getPoint();
-        int p2Point = p2.getPorkerCard().getPoint();
+        int p1Point = getMaxPoint();
+        int p2Point = p2.getMaxPoint();
         if(p1Point == p2Point) return null;
         return p1Point > p2Point ? this: p2;
+    }
+
+    private int getMaxPoint() {
+        return porkerCards.stream().reduce(PorkerCard::compare).get().getPoint();
     }
 }
