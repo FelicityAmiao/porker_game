@@ -15,7 +15,7 @@ public class LevelCaculator {
     public static LevelCard getLevelResultsByCards(List<PorkerCard> porkerCards) {
         if (porkerCards == null) return new LevelCard(NORMAL_CARDS_LEVEL);
 
-        LevelCard levelCard = getLevelCardByPairsType(porkerCards);
+        LevelCard levelCard = getLevelCardByContainsPairsType(porkerCards);
         if (levelCard != null) return levelCard;
 
         levelCard = getLevelCardByThreeCardsType(porkerCards);
@@ -46,15 +46,15 @@ public class LevelCaculator {
 
     private static LevelCard getLevelCardByThreeCardsType(List<PorkerCard> porkerCards) {
         List<PorkerCard> threeCards = getRepeatedCardsByTimes(porkerCards, 3);
-        if (threeCards.size() == 3) return new LevelCard(THREE_CARD, threeCards);
+        if (threeCards.size() == 3) return new LevelCard(THREE_CARD, null, threeCards);
         return null;
     }
 
-    private static LevelCard getLevelCardByPairsType(List<PorkerCard> porkerCards) {
+    private static LevelCard getLevelCardByContainsPairsType(List<PorkerCard> porkerCards) {
         List<PorkerCard> pairCards = getRepeatedCardsByTimes(porkerCards, 2);
         if (pairCards.size() == 2) {
             List<PorkerCard> threeCards = getRepeatedCardsByTimes(porkerCards, 3);
-            return threeCards.size() == 0? new LevelCard(ONE_PAIR, pairCards): new LevelCard(THREE_CARD_AND_ONE_PAIR, pairCards, threeCards);
+            return threeCards.size() == 0 ? new LevelCard(ONE_PAIR, pairCards) : new LevelCard(THREE_CARD_AND_ONE_PAIR, pairCards, threeCards);
         }
         if (pairCards.size() == 4) return new LevelCard(TWO_PAIR, pairCards);
         return null;
