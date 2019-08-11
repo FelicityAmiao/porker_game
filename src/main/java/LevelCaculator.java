@@ -12,6 +12,7 @@ public class LevelCaculator {
     private static final int SAME_SUIT = 5;
     private static final int THREE_CARD_AND_ONE_PAIR = 6;
     private static final int FOUR_CARD = 7;
+    private static final int STRAIGHT_AND_SAME_SUIT = 8;
 
     public static LevelCard getLevelResultsByCards(List<PorkerCard> porkerCards) {
         if (porkerCards == null) return new LevelCard(NORMAL_CARDS_LEVEL);
@@ -50,7 +51,10 @@ public class LevelCaculator {
     private static LevelCard getLevelCardByStraightType(List<PorkerCard> porkerCards) {
         List<Integer> indexs = porkerCards.stream().map(item -> PorkerCard.getPointOrderIndex(item.getPoint())).collect(Collectors.toList());
         List<Integer> minusLists = IntStream.range(0, indexs.size() - 1).filter(i -> indexs.get(i + 1) - indexs.get(i) == 1).boxed().collect(Collectors.toList());
-        if (indexs.size() - 1 == minusLists.size()) return new LevelCard(STRAIGHT);
+        if (indexs.size() - 1 == minusLists.size()) {
+            LevelCard sameSuitType = getLevelCardBySameSuitType(porkerCards);
+            return sameSuitType == null? new LevelCard(STRAIGHT): new LevelCard(STRAIGHT_AND_SAME_SUIT);
+        }
         return null;
     }
 
