@@ -106,4 +106,19 @@ public class PorkerGameTest {
         assertEquals(1, result);
     }
 
+    @Test
+    public void should_return_2_given_level1_level2_cards_with_normal_suit() {
+
+        List<String> points = Arrays.asList("4", "4", "5", "6", "7", "2", "2", "3", "3", "4");
+        List<String> suits = Arrays.asList("C", "D", "S", "C", "D", "C", "S", "D", "S", "H");
+        ArrayList<PorkerCard> porkerCards = new ArrayList<>();
+        for(int i = 0; i < points.size() && i < suits.size(); i++) {
+            porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
+        }
+
+        int result = PorkerGame.startGame(porkerCards);
+
+        assertEquals(2, result);
+    }
+
 }
