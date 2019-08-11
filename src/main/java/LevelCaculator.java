@@ -11,22 +11,22 @@ public class LevelCaculator {
     public static LevelCard getLevelResultsByCards(List<PorkerCard> porkerCards) {
         if (porkerCards == null) return new LevelCard(NORMAL_CARDS_LEVEL);
 
-        LevelCard pairlevelCard = getCardLevelByPairsType(porkerCards);
-        if (pairlevelCard != null) return pairlevelCard;
+        LevelCard levelCard = getLevelCardByPairsType(porkerCards);
+        if (levelCard != null) return levelCard;
 
-        LevelCard threeLevelCard = getCardLevelByThreeCardsType(porkerCards);
-        if (threeLevelCard != null) return threeLevelCard;
+        levelCard = getLevelCardByThreeCardsType(porkerCards);
+        if (levelCard != null) return levelCard;
 
         return new LevelCard(NORMAL_CARDS_LEVEL);
     }
 
-    private static LevelCard getCardLevelByThreeCardsType(List<PorkerCard> porkerCards) {
+    private static LevelCard getLevelCardByThreeCardsType(List<PorkerCard> porkerCards) {
         List<PorkerCard> threeCards = getRepeatedCardsByTimes(porkerCards, 3);
         if (threeCards.size() == 3) return new LevelCard(THREE_CARD, threeCards);
         return null;
     }
 
-    private static LevelCard getCardLevelByPairsType(List<PorkerCard> porkerCards) {
+    private static LevelCard getLevelCardByPairsType(List<PorkerCard> porkerCards) {
         List<PorkerCard> pairCards = getRepeatedCardsByTimes(porkerCards, 2);
         if (pairCards.size() == 2) return new LevelCard(ONE_PAIR, pairCards);
         if (pairCards.size() == 4) return new LevelCard(TWO_PAIR, pairCards);
