@@ -45,7 +45,7 @@ public class Player {
             case 2:
                 return compareTwoPairCards(p2);
             default:
-                return compareNormalCards(p2);
+                return compareNoRepeatedCards(p2);
         }
     }
 
@@ -54,17 +54,17 @@ public class Player {
         PorkerCard p2MaxCard = getMaxPorkerCard(p2.getLevelCard().getPairCards());
         PorkerCard result = p1MaxCard.compare(p2MaxCard);
         if(result != null) return getWinerByCardResult(result, p1MaxCard, p2);
-        return compareNormalCards(p2);
+        return compareNoRepeatedCards(p2);
     }
 
     private Player compareSamePointRepeatedCards(Player p2) {
         PorkerCard p1PairCard = this.levelCard.getPairCards().get(0);
         PorkerCard result = p1PairCard.compare(p2.getLevelCard().getPairCards().get(0));
         if (result != null) return getWinerByCardResult(result, p1PairCard, p2);
-        return compareNormalCards(p2);
+        return compareNoRepeatedCards(p2);
     }
 
-    private Player compareNormalCards(Player p2) {
+    private Player compareNoRepeatedCards(Player p2) {
         PorkerCard p1PorkerCard = getMaxPorkerCard(porkerCards);
         PorkerCard p2PorkerCard = p2.getMaxPorkerCard(p2.porkerCards);
         PorkerCard result = p1PorkerCard.compare(p2PorkerCard);
