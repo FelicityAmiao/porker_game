@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Player{
     private int playerNum;
@@ -13,11 +12,7 @@ public class Player{
     }
 
     private int calculateCardsLevel() {
-        if(porkerCards == null) return 0;
-        List<String> points = porkerCards.stream().map(PorkerCard::getPoint).collect(Collectors.toList());
-        List<String> repeatedItem = points.stream().filter(item -> Collections.frequency(points, item) == 2).collect(Collectors.toList());
-        if(repeatedItem.size() > 0) return 1;
-        return 0;
+        return LevelCaculator.calculateLevelByCards(porkerCards);
     }
 
     public int getPlayerNum() {
@@ -34,6 +29,10 @@ public class Player{
         }else if(this.level < p2.level) {
             return p2;
         }
+        return compareNormalCards(p2);
+    }
+
+    private Player compareNormalCards(Player p2) {
         PorkerCard p1PorkerCard = getMaxPorkerCard();
         PorkerCard p2PorkerCard = p2.getMaxPorkerCard();
         PorkerCard result = p1PorkerCard.compare(p2PorkerCard);
