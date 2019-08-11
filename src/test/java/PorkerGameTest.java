@@ -113,7 +113,7 @@ public class PorkerGameTest {
         List<String> points = Arrays.asList("4", "4", "5", "6", "7", "2", "2", "3", "3", "4");
         List<String> suits = Arrays.asList("C", "D", "S", "C", "D", "C", "S", "D", "S", "H");
         ArrayList<PorkerCard> porkerCards = new ArrayList<>();
-        for(int i = 0; i < points.size() && i < suits.size(); i++) {
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
             porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
         }
 
@@ -128,7 +128,7 @@ public class PorkerGameTest {
         List<String> points = Arrays.asList("2", "2", "4", "4", "6", "2", "2", "3", "3", "7");
         List<String> suits = Arrays.asList("C", "D", "S", "C", "D", "H", "S", "D", "S", "H");
         ArrayList<PorkerCard> porkerCards = new ArrayList<>();
-        for(int i = 0; i < points.size() && i < suits.size(); i++) {
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
             porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
         }
 
@@ -143,7 +143,7 @@ public class PorkerGameTest {
         List<String> points = Arrays.asList("2", "2", "3", "3", "4", "2", "2", "3", "3", "5");
         List<String> suits = Arrays.asList("C", "D", "H", "C", "D", "H", "S", "D", "S", "H");
         ArrayList<PorkerCard> porkerCards = new ArrayList<>();
-        for(int i = 0; i < points.size() && i < suits.size(); i++) {
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
             porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
         }
 
@@ -158,7 +158,7 @@ public class PorkerGameTest {
         List<String> points = Arrays.asList("4", "4", "5", "5", "6", "2", "2", "2", "3", "4");
         List<String> suits = Arrays.asList("C", "D", "H", "C", "D", "H", "S", "D", "S", "H");
         ArrayList<PorkerCard> porkerCards = new ArrayList<>();
-        for(int i = 0; i < points.size() && i < suits.size(); i++) {
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
             porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
         }
 
@@ -173,7 +173,7 @@ public class PorkerGameTest {
         List<String> points = Arrays.asList("4", "4", "4", "5", "6", "2", "2", "2", "3", "8");
         List<String> suits = Arrays.asList("C", "D", "S", "C", "D", "H", "S", "D", "S", "H");
         ArrayList<PorkerCard> porkerCards = new ArrayList<>();
-        for(int i = 0; i < points.size() && i < suits.size(); i++) {
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
             porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
         }
 
@@ -188,7 +188,7 @@ public class PorkerGameTest {
         List<String> points = Arrays.asList("4", "4", "4", "5", "6", "2", "3", "4", "5", "6");
         List<String> suits = Arrays.asList("C", "D", "S", "C", "D", "H", "S", "H", "S", "H");
         ArrayList<PorkerCard> porkerCards = new ArrayList<>();
-        for(int i = 0; i < points.size() && i < suits.size(); i++) {
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
             porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
         }
 
@@ -203,7 +203,7 @@ public class PorkerGameTest {
         List<String> points = Arrays.asList("2", "3", "4", "5", "6", "3", "4", "5", "6", "7");
         List<String> suits = Arrays.asList("C", "D", "S", "C", "D", "H", "D", "H", "S", "H");
         ArrayList<PorkerCard> porkerCards = new ArrayList<>();
-        for(int i = 0; i < points.size() && i < suits.size(); i++) {
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
             porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
         }
 
@@ -218,7 +218,7 @@ public class PorkerGameTest {
         List<String> points = Arrays.asList("5", "6", "7", "8", "9", "2", "3", "5", "6", "8");
         List<String> suits = Arrays.asList("C", "D", "S", "C", "D", "H", "H", "H", "H", "H");
         ArrayList<PorkerCard> porkerCards = new ArrayList<>();
-        for(int i = 0; i < points.size() && i < suits.size(); i++) {
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
             porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
         }
 
@@ -233,7 +233,7 @@ public class PorkerGameTest {
         List<String> points = Arrays.asList("2", "3", "5", "6", "9", "2", "3", "5", "6", "8");
         List<String> suits = Arrays.asList("D", "D", "D", "D", "D", "H", "H", "H", "H", "H");
         ArrayList<PorkerCard> porkerCards = new ArrayList<>();
-        for(int i = 0; i < points.size() && i < suits.size(); i++) {
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
             porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
         }
 
@@ -247,7 +247,7 @@ public class PorkerGameTest {
         List<String> points = Arrays.asList("2", "3", "5", "6", "9", "4", "4", "4", "7", "7");
         List<String> suits = Arrays.asList("D", "D", "D", "D", "D", "H", "S", "D", "C", "C");
         ArrayList<PorkerCard> porkerCards = new ArrayList<>();
-        for(int i = 0; i < points.size() && i < suits.size(); i++) {
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
             porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
         }
 
@@ -261,7 +261,7 @@ public class PorkerGameTest {
         List<String> points = Arrays.asList("5", "5", "5", "2", "2", "3", "3", "3", "7", "7");
         List<String> suits = Arrays.asList("D", "H", "S", "D", "C", "H", "C", "D", "C", "S");
         ArrayList<PorkerCard> porkerCards = new ArrayList<>();
-        for(int i = 0; i < points.size() && i < suits.size(); i++) {
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
             porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
         }
 
@@ -275,7 +275,7 @@ public class PorkerGameTest {
         List<String> points = Arrays.asList("5", "5", "5", "6", "6", "4", "4", "4", "4", "3");
         List<String> suits = Arrays.asList("D", "S", "C", "D", "H", "H", "C", "S", "D", "C");
         ArrayList<PorkerCard> porkerCards = new ArrayList<>();
-        for(int i = 0; i < points.size() && i < suits.size(); i++) {
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
             porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
         }
 
@@ -289,7 +289,7 @@ public class PorkerGameTest {
         List<String> points = Arrays.asList("5", "5", "5", "5", "2", "4", "4", "4", "4", "7");
         List<String> suits = Arrays.asList("D", "S", "C", "H", "H", "H", "C", "S", "D", "C");
         ArrayList<PorkerCard> porkerCards = new ArrayList<>();
-        for(int i = 0; i < points.size() && i < suits.size(); i++) {
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
             porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
         }
 
@@ -303,7 +303,7 @@ public class PorkerGameTest {
         List<String> points = Arrays.asList("9", "9", "9", "9", "T", "2", "3", "4", "5", "6");
         List<String> suits = Arrays.asList("D", "S", "C", "H", "H", "H", "H", "H", "H", "H");
         ArrayList<PorkerCard> porkerCards = new ArrayList<>();
-        for(int i = 0; i < points.size() && i < suits.size(); i++) {
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
             porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
         }
 
@@ -317,7 +317,7 @@ public class PorkerGameTest {
         List<String> points = Arrays.asList("3", "4", "5", "6", "7", "2", "3", "4", "5", "6");
         List<String> suits = Arrays.asList("H", "H", "H", "H", "H", "D", "D", "D", "D", "D");
         ArrayList<PorkerCard> porkerCards = new ArrayList<>();
-        for(int i = 0; i < points.size() && i < suits.size(); i++) {
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
             porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
         }
 
@@ -331,8 +331,8 @@ public class PorkerGameTest {
         List<String> points = Arrays.asList("2", "3", "4", "5", "F", "3", "4", "5", "6", "9");
         List<String> suits = Arrays.asList("H", "S", "C", "D", "S", "D", "D", "S", "D", "H");
         ArrayList<PorkerCard> porkerCards = new ArrayList<>();
-        for(int i = 0; i < points.size() && i < suits.size(); i++) {
-            if(i == 4) {
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
+            if (i == 4) {
                 assertThrows(PorkerGameException.class, () -> porkerCards.add(new PorkerCard(points.get(4), suits.get(4))));
                 continue;
             }
@@ -346,13 +346,25 @@ public class PorkerGameTest {
         List<String> points = Arrays.asList("2", "3", "4", "5", "6", "3", "4", "5", "6", "9");
         List<String> suits = Arrays.asList("H", "S", "C", "D", "X", "D", "D", "S", "D", "H");
         ArrayList<PorkerCard> porkerCards = new ArrayList<>();
-        for(int i = 0; i < points.size() && i < suits.size(); i++) {
-            if(i == 4) {
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
+            if (i == 4) {
                 assertThrows(PorkerGameException.class, () -> porkerCards.add(new PorkerCard(points.get(4), suits.get(4))));
                 continue;
             }
             porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
         }
+    }
+
+    @Test
+    public void should_throw_number_over_exception_given_11_cards() throws PorkerGameException {
+
+        List<String> points = Arrays.asList("2", "3", "4", "5", "6", "8", "3", "4", "5", "6", "9");
+        List<String> suits = Arrays.asList("H", "S", "C", "D", "H", "S", "D", "D", "S", "D", "H");
+        ArrayList<PorkerCard> porkerCards = new ArrayList<>();
+        for (int i = 0; i < points.size() && i < suits.size(); i++) {
+            porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
+        }
+        assertThrows(PorkerGameException.class, () -> PorkerGame.startGame(porkerCards));
     }
 
 }
