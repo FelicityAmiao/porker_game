@@ -30,6 +30,10 @@ A porker game developed by TDD
 
 ###### level 0 vs level 0:
 
+```java
+//supplement one test case 3.1: 2 3 4 5 9, 2 3 4 5 8
+```
+
 3. 2 3 4 T A, 2 3 J Q K => 1
 
 ###### level 0 vs level 1:
