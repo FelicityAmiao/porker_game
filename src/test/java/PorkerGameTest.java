@@ -258,7 +258,7 @@ public class PorkerGameTest {
     public void should_return_1_given_different_level6_cards() {
 
         List<String> points = Arrays.asList("5", "5", "5", "2", "2", "3", "3", "3", "7", "7");
-        List<String> suits = Arrays.asList("D", "D", "D", "D", "D", "H", "H", "H", "H", "H");
+        List<String> suits = Arrays.asList("D", "H", "S", "D", "C", "H", "C", "D", "C", "S");
         ArrayList<PorkerCard> porkerCards = new ArrayList<>();
         for(int i = 0; i < points.size() && i < suits.size(); i++) {
             porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
