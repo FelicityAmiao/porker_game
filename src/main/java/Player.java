@@ -13,10 +13,6 @@ public class Player{
         return playerNum;
     }
 
-    public List<PorkerCard> getPorkerCards() {
-        return porkerCards;
-    }
-
     public Player playWith(Player p2) {
         PorkerCard p1PorkerCard = getMaxPorkerCard();
         PorkerCard p2PorkerCard = p2.getMaxPorkerCard();

@@ -12,10 +12,6 @@ public class PorkerCard {
         return point;
     }
 
-    public String getSuit() {
-        return suit;
-    }
-
     public PorkerCard compare(PorkerCard porkerCard2) {
         if (getPointOrderIndex(this.point) > getPointOrderIndex(porkerCard2.getPoint())) {
             return this;
