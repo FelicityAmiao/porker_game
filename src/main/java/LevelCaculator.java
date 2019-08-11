@@ -11,6 +11,7 @@ public class LevelCaculator {
     private static final int STRAIGHT = 4;
     private static final int SAME_SUIT = 5;
     private static final int THREE_CARD_AND_ONE_PAIR = 6;
+    private static final int FOUR_CARD = 7;
 
     public static LevelCard getLevelResultsByCards(List<PorkerCard> porkerCards) {
         if (porkerCards == null) return new LevelCard(NORMAL_CARDS_LEVEL);
@@ -27,7 +28,16 @@ public class LevelCaculator {
         levelCard = getLevelCardBySameSuitType(porkerCards);
         if (levelCard != null) return levelCard;
 
+        levelCard = getLevelCardByForCardsType(porkerCards);
+        if (levelCard != null) return levelCard;
+
         return new LevelCard(NORMAL_CARDS_LEVEL);
+    }
+
+    private static LevelCard getLevelCardByForCardsType(List<PorkerCard> porkerCards) {
+        List<PorkerCard> fourCards = getRepeatedCardsByTimes(porkerCards, 4);
+        if(fourCards.size() == 4) return new LevelCard(FOUR_CARD);
+        return null;
     }
 
     private static LevelCard getLevelCardBySameSuitType(List<PorkerCard> porkerCards) {

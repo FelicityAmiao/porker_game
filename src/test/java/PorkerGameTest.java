@@ -268,4 +268,18 @@ public class PorkerGameTest {
         assertEquals(1, result);
     }
 
+    @Test
+    public void should_return_2_given_level6_level7_cards() {
+
+        List<String> points = Arrays.asList("5", "5", "5", "6", "6", "4", "4", "4", "4", "3");
+        List<String> suits = Arrays.asList("D", "S", "C", "D", "H", "H", "C", "S", "D", "C");
+        ArrayList<PorkerCard> porkerCards = new ArrayList<>();
+        for(int i = 0; i < points.size() && i < suits.size(); i++) {
+            porkerCards.add(new PorkerCard(points.get(i), suits.get(i)));
+        }
+
+        int result = PorkerGame.startGame(porkerCards);
+        assertEquals(2, result);
+    }
+
 }
